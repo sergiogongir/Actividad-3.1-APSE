@@ -1,0 +1,13 @@
+name: Mi Workflow
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Autenticación con el token
+        run: echo "Usando el token" && echo "${{ secrets.PAT }}" | sed 's/./& /g'
